@@ -1,5 +1,6 @@
 import discord
 from senha import senha
+from moeda import cara_coroa
 # A variável intents armazena as permissões do bot
 intents = discord.Intents.default()
 # Ativar a permissão para ler o conteúdo das mensagens
@@ -22,6 +23,8 @@ async def on_message(message):
     elif message.content.startswith('$Senha'):
         senha_gerada = senha()
         await message.channel.send("Sua senha gerada é:" + str(senha_gerada))
+    elif message.content.startswith('$Moeda'):
+        await message.channel.send('O resultado da moeda foi: ' + str(cara_coroa))
     else:
         await message.channel.send(message.content)
 
